@@ -1,0 +1,12 @@
+node_modules
+dist
+.vercel
+*.local
+.qa
+*.tsbuildinfo
+
+# Local-only: tooling, source documents and design exports (not part of the site)
+.claude
+brand
+prompt.md
+Faiz Khan - Software Engineer.pdf
