@@ -10,3 +10,6 @@ dist
 brand
 prompt.md
 Faiz Khan - Software Engineer.pdf
+
+.vercel
+.env*
