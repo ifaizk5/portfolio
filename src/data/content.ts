@@ -4,7 +4,7 @@
 export const profile = {
   name: 'Faiz Khan',
   role: 'Software Engineer',
-  location: 'Hyderabad, Pakistan',
+  location: 'Pakistan',
   email: 'faizedu3@gmail.com',
   phone: '+92 318 8199421',
   phoneHref: 'tel:+923188199421',
@@ -94,7 +94,7 @@ export const experience: Role[] = [
     title: 'Software Trainee Engineer — Backend',
     period: 'Jun 2026 – Jul 2026',
     start: '2026',
-    location: 'Hyderabad, Pakistan',
+    location: 'Pakistan',
     points: [
       'Designed, developed, tested and maintained secure backend modules and REST APIs with NestJS, PostgreSQL and Drizzle ORM.',
       'Implemented authentication, authorisation and incident management following software engineering best practices.',
@@ -107,7 +107,7 @@ export const experience: Role[] = [
     title: 'MERN Stack Intern',
     period: 'Apr 2026 – Jun 2026',
     start: '2026',
-    location: 'Remote · Hyderabad, Pakistan',
+    location: 'Remote · Pakistan',
     points: [
       'Developed full-stack web applications and REST APIs on the MERN stack, following clean coding practices.',
       'Worked with mentors to debug issues, integrate frontend and backend components and deliver production-ready features.',
@@ -124,7 +124,7 @@ export const experience: Role[] = [
     title: 'Web Development Intern',
     period: 'Jun 2025 – Aug 2025',
     start: '2025',
-    location: 'Hyderabad, Pakistan',
+    location: 'Pakistan',
     points: [
       'Developed responsive web applications with HTML, CSS, JavaScript, Bootstrap and the Google Books REST API.',
       'Implemented search, filtering, responsive layouts and UI improvements.',
@@ -159,7 +159,7 @@ export const education = {
   logo: { src: '/logos/szabist.webp', width: 282, height: 82 },
   degree: 'Bachelor of Science in Software Engineering',
   period: 'Aug 2022 – Jun 2026',
-  location: 'Hyderabad, Pakistan',
+  location: 'Pakistan',
   cgpa: '3.51 / 4.00',
 }
 

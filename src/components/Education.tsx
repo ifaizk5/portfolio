@@ -24,7 +24,7 @@ export function Education() {
                 <dd className="t-mono mt-2">{education.period}</dd>
               </div>
               <div className="rule pt-4">
-                <dt className="t-label text-mute">Campus</dt>
+                <dt className="t-label text-mute">Location</dt>
                 <dd className="t-mono mt-2">{education.location}</dd>
               </div>
               <div className="rule pt-4">

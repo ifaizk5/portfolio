@@ -71,7 +71,7 @@ export function Contact() {
         </ul>
 
         <footer className="rule mt-24 flex flex-wrap items-center justify-between gap-4 pt-6">
-          <p className="t-label text-mute">© {new Date().getFullYear()} Faiz Khan · Hyderabad, Pakistan</p>
+          <p className="t-label text-mute">© {new Date().getFullYear()} Faiz Khan · Pakistan</p>
           <a href="#top" className="t-label inline-flex items-center gap-1.5 text-mute hover:text-paper">
             Back to top <ArrowUp size={14} aria-hidden="true" />
           </a>
