@@ -23,10 +23,15 @@ import {
   siTailwindcss,
   siTypescript,
   siVite,
+  siScikitlearn,
+  siNumpy,
+  siScipy,
+  siVercel,
   type SimpleIcon,
 } from 'simple-icons'
 
 // Only tools with an official Simple Icons mark are listed; the rest render as text.
+// Marks print in the ink (currentColor): the page has one colour besides it, and that one only fills.
 const icons: Record<string, SimpleIcon> = {
   Java: siOpenjdk,
   JavaScript: siJavascript,
@@ -54,44 +59,21 @@ const icons: Record<string, SimpleIcon> = {
   'GitHub Copilot': siGithubcopilot,
   Pandas: siPandas,
   FastAPI: siFastapi,
-}
-
-// Brand colours that disappear on the paper background get a readable stand-in on hover.
-const hoverOverride: Record<string, string> = {
-  JavaScript: '#b89c00',
-  'Drizzle ORM': '#6b8f00',
-  Swagger: '#4e9a06',
-  'Swagger / OpenAPI': '#4e9a06',
-}
-
-// Near-black marks (Express, GitHub, OpenJDK…) would vanish on the ink sections, so they hover to paper there.
-function isDark(hex: string) {
-  const n = parseInt(hex, 16)
-  const [r, g, b] = [(n >> 16) & 255, (n >> 8) & 255, n & 255]
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b < 60
+  'scikit-learn': siScikitlearn,
+  NumPy: siNumpy,
+  SciPy: siScipy,
+  Vercel: siVercel,
 }
 
 export function hasTechIcon(name: string) {
   return name in icons
 }
 
-export function TechIcon({ name, size = 18, className }: { name: string; size?: number; className?: string }) {
+export function TechIcon({ name, size = 16, className }: { name: string; size?: number; className?: string }) {
   const icon = icons[name]
   if (!icon) return null
   return (
-    <svg
-      role="img"
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      width={size}
-      height={size}
-      className={className}
-      style={{
-        ['--brand' as string]: hoverOverride[name] ?? `#${icon.hex}`,
-        ['--brand-on-dark' as string]: isDark(icon.hex) ? '#f4f2ee' : `#${icon.hex}`,
-      }}
-    >
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" width={size} height={size} className={className} style={{ flexShrink: 0 }}>
       <path d={icon.path} />
     </svg>
   )

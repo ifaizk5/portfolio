@@ -1,7 +1,6 @@
-import { useRef, useState } from 'react'
-import { ArrowUp, ArrowUpRight, Check, Copy } from 'lucide-react'
+import { useState } from 'react'
+import { Check, Copy } from 'lucide-react'
 import { profile } from '../data/content'
-import { useReveal } from '../lib/motion'
 
 const channels = [
   { label: 'Phone', value: profile.phone, href: profile.phoneHref },
@@ -11,9 +10,7 @@ const channels = [
 ]
 
 export function Contact() {
-  const root = useRef<HTMLElement>(null)
   const [copied, setCopied] = useState(false)
-  useReveal(root)
 
   const copy = async () => {
     try {
@@ -26,57 +23,48 @@ export function Contact() {
   }
 
   return (
-    <section ref={root} id="contact" aria-labelledby="contact-title" className="on-dark">
-      <div className="shell pt-[var(--section-y)] pb-10">
-        <p data-reveal className="pill">
-          <span className="status-dot" aria-hidden="true" /> Available for software engineering roles
-        </p>
-        <h2 id="contact-title" data-split className="t-display mt-8 max-w-[14ch]">
-          Hiring an engineer for your team? <span className="text-mute">Let’s talk.</span>
-        </h2>
+      <section id="contact" aria-labelledby="contact-title" className="contact section">
+        <div className="container">
+          <h2 id="contact-title" data-reveal>Need someone who reads the logs?</h2>
+          <p className="lead">I am open to software engineering roles. An email reaches me directly.</p>
 
-        <div data-reveal className="mt-16 flex flex-wrap items-center gap-x-6 gap-y-4">
-          <a
-            href={`mailto:${profile.email}`}
-            className="link-line font-display text-[clamp(1.6rem,5.6vw,5rem)] leading-tight font-medium tracking-[-0.02em] break-all transition-colors duration-300 hover:text-signal"
-          >
-            {profile.email}
-          </a>
-          <button type="button" onClick={copy} className="btn btn-ghost" aria-live="polite">
-            {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
-            {copied ? 'Copied' : 'Copy email'}
-          </button>
+          <div className="contact__email" data-reveal>
+            <a href={`mailto:${profile.email}`} className="link contact__address">
+              {profile.email}
+            </a>
+            <button type="button" onClick={copy} className="btn" aria-live="polite">
+              {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+              {copied ? 'Copied' : 'Copy email'}
+            </button>
+          </div>
+
+          <ul className="cells channels" data-reveal>
+            {channels.map((c) => (
+              <li key={c.label}>
+                <a href={c.href} {...(c.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  <span className="small muted">{c.label}</span>
+                  <span className="channels__value">{c.value}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
+      </section>
+  )
+}
 
-        <ul className="mt-20 grid sm:grid-cols-2 lg:grid-cols-4">
-          {channels.map((c) => (
-            <li key={c.label} data-reveal className="rule">
-              <a
-                href={c.href}
-                {...(c.external ? { target: '_blank', rel: 'noopener' } : {})}
-                className="group flex items-center justify-between gap-4 py-6 pr-4"
-              >
-                <span>
-                  <span className="t-label block text-mute">{c.label}</span>
-                  <span className="mt-1.5 block text-[1.05rem]">{c.value}</span>
-                </span>
-                <ArrowUpRight
-                  size={18}
-                  aria-hidden="true"
-                  className="text-mute transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-signal"
-                />
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <footer className="rule mt-24 flex flex-wrap items-center justify-between gap-4 pt-6">
-          <p className="t-label text-mute">© {new Date().getFullYear()} Faiz Khan · Pakistan</p>
-          <a href="#top" className="t-label inline-flex items-center gap-1.5 text-mute hover:text-paper">
-            Back to top <ArrowUp size={14} aria-hidden="true" />
+/** The colophon: one line under a 3px rule, after <main>. */
+export function Colophon() {
+  return (
+    <footer className="colophon">
+      <div className="container">
+        <p className="small">
+          © {new Date().getFullYear()} Faiz Khan, Pakistan. Set in Libre Franklin. Hand-built in React and Vite, no template.{' '}
+          <a href="#top" className="link">
+            Back to top
           </a>
-        </footer>
+        </p>
       </div>
-    </section>
+    </footer>
   )
 }

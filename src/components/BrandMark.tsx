@@ -7,8 +7,8 @@ type Props = {
   className?: string
 }
 
-/** Official logo as an optimised WebP, or a typographic wordmark when none exists. Never a fabricated logo. */
-export function BrandMark({ name, logo, height = 28, className = '' }: Props) {
+/** Official logo as an optimised WebP, printed in greyscale, or a typographic wordmark when none exists. Never a fabricated logo. */
+export function BrandMark({ name, logo, height = 32, className = '' }: Props) {
   if (logo) {
     const h = Math.round(height * (logo.scale ?? 1))
     return (
@@ -19,14 +19,10 @@ export function BrandMark({ name, logo, height = 28, className = '' }: Props) {
         height={h}
         loading="lazy"
         decoding="async"
-        className={`block w-auto ${className}`}
+        className={`logo ${className}`}
         style={{ height: h }}
       />
     )
   }
-  return (
-    <span className={`t-title leading-none ${className}`} style={{ fontSize: height * 0.8 }}>
-      {name}
-    </span>
-  )
+  return <span className={`wordmark ${className}`}>{name}</span>
 }

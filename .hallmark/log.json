@@ -1,0 +1,30 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "page",
+  "shape": "Narrative Workflow",
+  "theme": "brutal",
+  "axes": "light/grotesk-heavy/chromatic-yellow",
+  "hero": "Corridor",
+  "nav": "slab",
+  "footer": "colophon block",
+  "imagery": "none, two concept diagrams",
+  "photos": [],
+  "entry": "none",
+  "sections": [
+   "Hero",
+   "Rows",
+   "Showcase",
+   "Band statement",
+   "Steps",
+   "Table",
+   "Bento",
+   "Contact"
+  ],
+  "signature": "request path as boxed rows, server row ink",
+  "waived": [],
+  "prompt": "portfolio of a junior backend-leaning software engineer",
+  "date": "2026-11-05"
+ }
+]

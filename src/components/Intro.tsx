@@ -1,32 +1,26 @@
-import { useRef } from 'react'
-import { useReveal } from '../lib/motion'
+import { stackLayers } from '../data/content'
 
-const facts = [
-  { value: '3', label: 'Engineering roles, 2025–26' },
-  { value: '3.51', label: 'CGPA, BS Software Engineering' },
-  { value: '2', label: 'Featured systems' },
-]
-
+/** What I build: the request's path through the stack as three boxed rows, the server row filled ink. */
 export function Intro() {
-  const root = useRef<HTMLElement>(null)
-  useReveal(root)
-
   return (
-    <section ref={root} aria-label="About" className="section">
-      <div className="shell">
-        <p data-split className="t-statement max-w-[30ch]">
-          I started on the front end, moved through the MERN stack at 10Pearls, and went fully server-side at ZETSOL.{' '}
-          <span className="text-mute">I want to keep building on both sides of the API.</span>
-        </p>
+    <section aria-labelledby="layers-title" className="section chapter">
+      <div className="container chapter__pin">
+        <div className="head head--split">
+          <h2 id="layers-title">Every click makes three stops</h2>
+          <p className="lead">
+            It starts in React, crosses an API, and lands in a table. I have written all three, and I like the
+            middle one best.
+          </p>
+        </div>
 
-        <dl className="mt-20 grid gap-10 sm:grid-cols-3 sm:gap-6">
-          {facts.map((f) => (
-            <div key={f.label} data-reveal className="rule flex flex-col pt-6">
-              <dt className="t-body order-2 mt-1 text-mute">{f.label}</dt>
-              <dd className="t-display">{f.value}</dd>
-            </div>
+        <ol className="cells layers">
+          {stackLayers.map((layer) => (
+            <li key={layer.path} className={`layer${layer.emphasis ? ' layer--lead' : ''}`}>
+              <p className="display layer__word">{layer.word.replace('.', '')}</p>
+              <p className="layer__tools">{layer.tools.join(', ')}</p>
+            </li>
           ))}
-        </dl>
+        </ol>
       </div>
     </section>
   )
